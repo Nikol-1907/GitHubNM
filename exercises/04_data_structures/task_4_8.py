@@ -26,3 +26,13 @@
 """
 
 ip = "192.168.3.1"
+ip = ip.split('.')
+ip_1 = int(ip[0])
+ip_2 = int(ip[1])
+ip_3 = int(ip[2])
+ip_4 = int(ip[3])
+ip_test = '''
+{0:<10}  {1:<10}  {2:<10}  {3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+'''
+print(ip_test.format(ip_1,ip_2,ip_3,ip_4))
