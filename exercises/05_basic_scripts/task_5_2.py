@@ -30,3 +30,36 @@ Out[1]: '11111111111111111111111111110000'
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+
+out = input('Enter IP_address (x.x.x.x/x): ')
+ip,mask = out.split('/')
+ip_add = ip.split('.')
+mask = int(mask)
+
+oct1,oct2,oct3,oct4 = [
+int(ip_add[0]),
+int(ip_add[1]),
+int(ip_add[2]),
+int(ip_add[3])]
+
+mask_bin = '1' * mask + '0' * (32 - mask)
+
+m1,m2,m3,m4 = [
+int(mask_bin[0:8],2),
+int(mask_bin[8:16],2),
+int(mask_bin[16:24],2),
+int(mask_bin[24:32],2)]
+
+ip_out = '''
+Network:
+{0:<10} {1:<10} {2:<10} {3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+'''
+mask_out = '''
+Mask:
+/{0}
+{1:<10} {2:<10} {3:<10} {4:<10}
+{1:08b}  {2:08b}  {3:08b}  {4:08b}
+'''
+print(ip_out.format(oct1,oct2,oct3,oct4))
+print(mask_out.format(mask,m1,m2,m3,m4))
