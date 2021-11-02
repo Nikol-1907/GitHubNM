@@ -71,5 +71,5 @@ mode = input("Введите режим работы интерфейса (acces
 interface = input("Введите тип и номер интерфейса: ")
 vlans = input("Введите номер влан(ов): ")
 
-print(f"interface {interface}")
+print(f"interface {interface}" )
 print("\n".join(template[mode]).format(vlans))
